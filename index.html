@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9d0690b173.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./src/style.css"> 
+    <title>m</title>
+</head>
+<body>
+  <div id="app" >
+
+    
+
+
+
+
+    
+    <div class=" all m-0 p-0">
+
+      <nav class="navbar sticky-top bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Sticky top</a>
+        </div>
+      </nav>
+
+      <div class="container-fluid profile my-5">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="col-10 bg-white p-2 profiles">
+            <div class="d-flex align-items-center justify-content-center">
+              <p class="chanam p-0 my-2">{{charaName}}</p>
+            </div>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-6">
+                  <img :src="profile" alt="" class="w-100">
+                </div>
+                <div class="col-6"></div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center mt-3">
+              <div class="container-fluid">
+                <p class="m-0 color-pink mb-3 text-center tw-7" style="font-size: 4.5vw;">相簿</p>
+                <div class="row">
+                  <div class="col-6 p-2" v-for="(file,i) in lovefiles" >
+                    <img :src="file.url" alt="" class="w-100 square" :data-bs-target="'#m' + i" data-bs-toggle="modal">
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+
+          
+
+
+            
+          </div>
+        </div>
+      </div>
+  
+  
+      <nav class="navbar sticky-bottom "  style="background-color: #f460a6;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Fixed bottom</a>
+        </div>
+      </nav>
+
+    </div>
+
+
+
+    <div v-for="(file,i) in lovefiles" class="modal fade" :id="'m' + i" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal {{ i }}</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <img :src="file.url" alt="" class="w-100" :data-bs-target="'#m' + i" data-bs-toggle="modal">
+
+            
+
+            <button type="button" class="btn btn-customer mt-3" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color: --bgpink;" @click="go(file.url)">
+              下載
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+    
+
+    
+</body>
+
+<script src="./src/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</html>

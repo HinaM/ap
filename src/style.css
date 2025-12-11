@@ -1,0 +1,58 @@
+*{
+    /* border: 1px solid #000;  ← 自己 debug 再用 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --colorpink: #f460a6;
+    --colorpinker: #da5493;
+}
+html,body{
+    
+    margin:0;
+}
+.color-pink{
+    color: var(--colorpink);
+}
+.tw-7{
+    font-weight: 700;
+}
+.all {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to right top,
+  #ff9bb5,   /* 粉紅 */
+  #e5a3d7,   /* 粉紫 */
+  #c8b7ec,   /* 淺紫 */
+  #a7c9ff,   /* 淺藍 */
+  #90e0f6,   /* 水藍 */
+  #a8eec1,   /* 薄綠 */
+  #c8f5a6,   /* 淺綠 */
+  #f3f7b3    /* 黃綠 */
+) !important;
+}
+.profiles{
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.chanam{
+    font-size: 6vw;
+    color: #c896ed;
+    font-weight: 700;
+}
+.square {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+}
+.btn-customer{
+    background-color: var(--colorpink) !important;
+    transition: 0.5s;
+    color: white;
+}
+.btn-customer:hover{
+    color: white;
+    background-color: var(--colorpinker) !important;
+}
