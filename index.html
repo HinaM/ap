@@ -45,7 +45,7 @@
 
             <div class="d-flex align-items-center justify-content-center mt-3">
               <div class="container-fluid">
-                <p class="m-0 color-pink mb-3 text-center tw-7" style="font-size: 4.5vw;">相簿</p>
+                <p class="m-0 color-pink mb-3 text-center tw-7" style="font-size: 4.5vw;"><i class="fa-solid fa-camera me-2"></i>相簿</p>
                 <div class="row">
                   <div class="col-6 p-2" v-for="(file,i) in lovefiles" >
                     <img :src="file.url" alt="" class="w-100 square" :data-bs-target="'#m' + i" data-bs-toggle="modal">
@@ -86,11 +86,13 @@
           <div class="modal-body">
             <img :src="file.url" alt="" class="w-100" :data-bs-target="'#m' + i" data-bs-toggle="modal">
 
+            <p class="mt-3 p-0 text-center text-secondary">遊玩日期：{{file.addedOn}}</p>
+            <div class="w-100">
+              <button type="button" class="w-50 btn btn-customer mt-2" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color: --bgpink;" @click="go(file.url)">
+                下載
+              </button>
+            </div>
             
-
-            <button type="button" class="btn btn-customer mt-3" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; background-color: --bgpink;" @click="go(file.url)">
-              下載
-            </button>
           </div>
         </div>
       </div>

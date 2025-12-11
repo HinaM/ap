@@ -155,7 +155,7 @@ new Vue({
               name: file.name,
               path,
               url: urlData.publicUrl,
-              addedOn: file.created_at ? new Date(file.created_at).toLocaleString(): '未知'
+              addedOn: file.created_at ? new Date(file.created_at).toLocaleDateString('zh-TW'): '未知'
             }
           })
 
