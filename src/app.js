@@ -132,7 +132,7 @@ new Vue({
             .list(folderPath, {
               
               offset: 0,
-              sortBy: { column: 'name', order: 'asc' }
+              sortBy: { column: 'created_at', order: 'asc' }
             })
 
           if (error) {
