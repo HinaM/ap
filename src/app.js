@@ -14,6 +14,8 @@ new Vue({
         older: 'main', 
         files: [],
         lovefiles: [],
+        allph: [],
+        allph9: [],
         loading: false,
         error: '',
         charaName: 'HINA',
@@ -29,6 +31,7 @@ new Vue({
         this.mainCo()
         this.mainPro()
         this.love()
+        this.allp()
     },
     methods: {
         async fetchFiles () {
@@ -133,9 +136,9 @@ new Vue({
             .storage
             .from(this.bucket)
             .list(folderPath, {
-              
+              limit: 3,
               offset: 0,
-              sortBy: { column: 'created_at', order: 'asc' }
+              sortBy: { column: 'created_at', order: 'desc' }
             })
 
           if (error) {
@@ -164,6 +167,48 @@ new Vue({
 
           this.loading = false
         },
+        async allp () {
+          this.loading = true
+          this.error = ''
+          this.allph = []
+
+          const folderPath = 'allPhoto'
+
+          // 1️⃣ 用 supabaseClient，而不是 client
+          const { data, error } = await supabaseClient
+            .storage
+            .from(this.bucket)
+            .list(folderPath, {
+              offset: 0,
+              sortBy: { column: 'created_at', order: 'desc' }
+            })
+
+          if (error) {
+            console.error('讀取失敗：', error)
+            this.error = '讀取失敗：' + error.message
+            this.loading = false
+            return
+          }
+
+          // 2️⃣ 把每個檔案轉成 publicUrl
+          this.allph = data.map(file => {
+            const path = (folderPath ? folderPath + '/' : '') + file.name
+
+            const { data: urlData } = supabaseClient
+              .storage
+              .from(this.bucket)
+              .getPublicUrl(path)
+
+            return {
+              name: file.name,
+              path,
+              url: urlData.publicUrl,
+              addedOn: file.created_at ? new Date(file.created_at).toLocaleDateString('zh-TW'): '未知'
+            }
+          })
+          this.allph9 = this.allph.slice(0, 9);
+          this.loading = false
+        },
         go(url) {
           window.location.href = url;
         }
@@ -171,6 +216,6 @@ new Vue({
         
     },
     computed: {
-        
+      
     }
     })

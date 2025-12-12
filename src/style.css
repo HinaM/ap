@@ -1,5 +1,5 @@
 *{
-    /* border: 1px solid #000;  */
+    border: 1px solid #000;  
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -56,6 +56,11 @@ html,body{
 .btn-customer:hover{
     color: white;
     background-color: var(--colorpinker) !important;
+}
+.btn-customer:focus{
+    color: white !important;
+    background-color: var(--colorpinker) !important;
+    border-color:  var(--colorpinker);
 }
 .ti{
     background-color: var(--colorpink);
