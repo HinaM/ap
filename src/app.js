@@ -18,7 +18,10 @@ new Vue({
         error: '',
         charaName: 'HINA',
         myqr: '',
-        profile: ''
+        profile: '',
+        season: "甜點季度",
+        level: 3,
+        call: "黃金甜點"
     },
     
     async mounted() {

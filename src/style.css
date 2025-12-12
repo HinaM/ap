@@ -1,5 +1,5 @@
 *{
-    /* border: 1px solid #000;  ← 自己 debug 再用 */
+    /* border: 1px solid #000;  */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -32,6 +32,7 @@ html,body{
   #f3f7b3    /* 黃綠 */
 ) !important;
 }
+.navbar{}
 .profiles{
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -55,4 +56,8 @@ html,body{
 .btn-customer:hover{
     color: white;
     background-color: var(--colorpinker) !important;
+}
+.ti{
+    background-color: var(--colorpink);
+    color: white;
 }
