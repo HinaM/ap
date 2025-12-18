@@ -103,25 +103,7 @@
       </div>
     </div>
 
-    <div v-for="(file,i) in lovefiles" class="modal fade" :id="'m' + i" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            
-            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <img :src="file.url" alt="" class="w-100" :data-bs-target="'#m' + i" data-bs-toggle="modal">
-
-            <div class="w-100 d-flex align-items-center justify-content-center mt-3">
-              <button class="w-50 btn btn-customer" type="submit" @click="go(file.url)"><i class="fa-solid fa-download me-2"></i>下載圖片</button>
-              
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
 
     <div v-for="(file,i) in allph" class="modal fade" :id="'ml' + i" tabindex="-1">

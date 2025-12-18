@@ -12,6 +12,9 @@ html,body{
     
     margin:0;
 }
+.bg-pink{
+    color: var(--colorpink);
+}
 .color-pink{
     color: var(--colorpink);
 }
