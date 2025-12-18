@@ -94,3 +94,10 @@ html,body{
     background-color: #fff;
     border-radius: 100%;
 }
+.modal-header{
+    background-color: var(--colorpink) !important;
+}
+.btn-close:focus{
+    box-shadow: none;
+    color: #fff !important;
+}
