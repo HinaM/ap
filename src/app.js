@@ -22,8 +22,8 @@ new Vue({
         myqr: '',
         profile: '',
         season: "甜點季度",
-        level: 3,
-        call: "黃金甜點"
+        level: 4,
+        call: "鑽石甜點"
     },
     
     async mounted() {
