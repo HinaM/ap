@@ -109,7 +109,7 @@ html,body{
 }
 .qr{
     margin-top: -20px;
-    border: 8px solid var(--colorpink);
+    border: 6px solid var(--colorpink);
     padding: 10px;
     border-radius: 100%;
     background-color: #fff;
