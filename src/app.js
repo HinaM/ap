@@ -1,10 +1,11 @@
 const supabaseUrl = 'https://rvntujioqkontqqjhxdb.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ2bnR1amlvcWtvbnRxcWpoeGRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk5MjkwNTMsImV4cCI6MjA3NTUwNTA1M30.YGPpQFss05qu3YmmHvnmfJycmhbQDTSKlzDz25Gbg6c';
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey)
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+
 
 
     
-
 
 new Vue({
     el: '#app',
@@ -23,7 +24,8 @@ new Vue({
         profile: '',
         season: "甜點季度",
         level: 4,
-        call: "鑽石甜點"
+        call: "鑽石甜點",
+        collection: []
     },
     
     async mounted() {
@@ -32,6 +34,20 @@ new Vue({
         this.mainPro()
         this.love()
         this.allp()
+        try {
+          const { data, error } = await supabaseClient
+            .from('apr')
+            .select('*')
+            .order('id', { ascending: true })
+        
+          if (error) throw error
+        
+          this.collection = data
+        
+        } catch (err) {
+          console.error('Supabase select failed:', err)
+        }
+        
     },
     methods: {
         async fetchFiles () {

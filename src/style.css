@@ -94,7 +94,7 @@ html,body{
     flex-direction: column;
 }
 .sticky-bottom li a p{
-    font-size: 15px;
+    font-size: 10px;
 }
 .myqr{
     
@@ -108,12 +108,25 @@ html,body{
     box-shadow: none;
     color: #fff !important;
 }
-.qr{
+.qr {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1; 
+    width: 70px; 
     margin-top: -20px;
     border: 5px solid var(--colorpink);
-    padding: 10px;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: #fff;
+}
+.qr a {
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-decoration: none;
 }
 /*
 .dec{
