@@ -254,29 +254,34 @@ new Vue({
           alert("修改成功！");
           
   
-          /*
+         
           
-          this.updateA_title = this.valueTitle;
-          this.updateA_description = this.valueDescription;
-          this.updateA_price = this.valuePrice;
-          this.updateA_safety_stock = this.valueSafetyStock;
-          this.updateA_launch = this.valueLaunch;
-          this.updateA_cata = this.valueCata;
-          this.updateA_pid = this.valuePId;
+  
+        },
+        async minus(id,num){
+
+          const newNum = num - 1;
+          
+          
+          const { error: updateError } = await supabaseClient
+          .from('apr')
+          .update({ num: newNum})
+          .eq('id', id);
+
+          if (updateError) {
+            alert("更新失敗：" + updateError.message);
+            console.error(updateError);
+            return;
+          }
+
+          const item = this.collection.find(f => f.id === id);
+          if (item) {
+            item.num = newNum;
+          }
+          alert("修改成功！");
+          
   
          
-  
-          
-          const now = new Date().toISOString()
-          
-          const { error: updateError } = await supabase
-          .from('tickets')
-          .update({ product_id:this.updateA_pid, title: this.updateA_title ,  description: this.updateA_description , price: this.updateA_price , safety_stock:this.updateA_safety_stock , launch: this.updateA_launch , category: this.updateA_cata, latest_time: now})
-          .eq('id', id);
-  
-          alert("修改成功！");
-          window.location.reload();
-          */
           
   
         },
