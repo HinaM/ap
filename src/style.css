@@ -140,6 +140,12 @@ html,body{
 .coll_name{
     font-size: 12px;
 }
+.coll_name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;    /* 只顯示兩行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 .counter{
     display: flex;
     align-items: center;
