@@ -105,8 +105,8 @@ html,body{
     color: #fff !important;
 }
 .qr{
-    margin-top: -25px;
-    border: 10px solid var(--colorpink);
+    margin-top: -20px;
+    border: 8px solid var(--colorpink);
     padding: 10px;
     border-radius: 100%;
     background-color: #fff;
