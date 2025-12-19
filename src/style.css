@@ -128,6 +128,9 @@ html,body{
     align-items: center; 
     text-decoration: none;
 }
+.coll_name{
+    font-size: 12px;
+}
 /*
 .dec{
     width: 30px;

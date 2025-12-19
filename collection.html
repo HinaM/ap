@@ -24,7 +24,7 @@
 
       <nav class="navbar sticky-top bg-body-tertiary" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
         <div class="container-fluid">
-          <a class="navbar-brand tw-7" href="#" style="color: #f460a6;"><i class="fa-solid fa-web-awesome me-2"></i>AIPRI</a>
+          <a class="navbar-brand tw-7" href="./index.html" style="color: #f460a6;"><i class="fa-solid fa-web-awesome me-2"></i>AIPRI</a>
         </div>
       </nav>
 
@@ -40,11 +40,11 @@
               <div class="container-fluid">
                 <p class="m-0 color-pink mb-3 text-center tw-7" style="font-size: 4.5vw;"><i class="fa-solid fa-award me-2"></i>收集</p>
                 <div class="row">
-                   
+                    <pre id="debug" style="font-size: 12px; white-space: pre-wrap;"></pre>
                   <div class="col-6 p-1" v-for="(file,i) in collection" >
                     <img :src="file.url" alt="" class="w-100">
-                    <p class="m-0 p-0">{{file.charactor}}</p>
-                    <p class="m-0 p-0">{{file.name}}</p>
+                    <p class="m-0 p-0 coll_name text-center">{{file.charactor}}</p>
+                    <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
                     <p class="m-0 p-0">{{file.num}}</p>
                   </div>
                   
