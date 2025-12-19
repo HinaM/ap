@@ -81,6 +81,22 @@
                       
                     </div>
                   </div>
+
+                  <div class="col-12 p-0 rank_title py-2 my-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star"></i></div>
+                  <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 2">
+                    <img :src="file.url" alt="" class="w-100">
+                    <div>
+                      <p class="m-0 p-0 coll_name text-center">{{file.charactor}}</p>
+                      <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
+                      <div class="counter">
+                        <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
+                        <p class="m-0 p-0">{{file.num}}</p>
+                       
+                        <button class="btn bgc-pink text-white" @click="minus(file.id, file.num)"><i class="fa-solid fa-minus"></i></button>
+                      </div>
+                      
+                    </div>
+                  </div>
                   
                 </div>
 
