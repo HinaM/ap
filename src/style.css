@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    position: relative;
 }
 :root{
     --colorpink: #f460a6;
@@ -113,4 +114,13 @@ html,body{
     padding: 10px;
     border-radius: 100%;
     background-color: #fff;
+}
+.dec{
+    width: 30px;
+    height: 30px;
+    background-color: #61cfff;
+    position: absolute;
+    top: -3%;
+    right: 0%;
+    transform: rotate(45deg);
 }
