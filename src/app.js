@@ -251,7 +251,7 @@ new Vue({
           if (item) {
             item.num = newNum;
           }
-          alert("修改成功！");
+        
           
   
          
@@ -278,8 +278,7 @@ new Vue({
           if (item) {
             item.num = newNum;
           }
-          alert("修改成功！");
-          
+       
   
          
           
