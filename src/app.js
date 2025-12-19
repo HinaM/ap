@@ -25,7 +25,8 @@ new Vue({
         season: "甜點季度",
         level: 4,
         call: "鑽石甜點",
-        collection: []
+        collection: [],
+        catalog: "第一彈"
     },
     
     async mounted() {

@@ -40,7 +40,34 @@
               <div class="container-fluid">
                 <p class="m-0 color-pink mb-3 text-center tw-7" style="font-size: 4.5vw;"><i class="fa-solid fa-award me-2"></i>收集</p>
                 <div class="row">
-                  <div class="col-6 p-1" v-for="(file,i) in collection" >
+                  <div class="col-12 p-0">
+                  
+                    <select class="form-select" aria-label="Default select example" v-model="catalog">
+                        
+                        <option value="第一彈" selected>第一彈</option>
+                        <option value="第二彈">第二彈</option>
+                        
+                      </select>
+                  </div>
+                  <div class="col-12 p-0 rank_title py-2 my-2"><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star"></i></div>
+                  <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 4">
+                    <img :src="file.url" alt="" class="w-100">
+                    <div>
+                      <p class="m-0 p-0 coll_name text-center">{{file.charactor}}</p>
+                      <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
+                      <div class="counter">
+                        <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
+                        <p class="m-0 p-0">{{file.num}}</p>
+                       
+                        <button class="btn bgc-pink text-white" @click="minus(file.id, file.num)"><i class="fa-solid fa-minus"></i></button>
+                      </div>
+                      
+                    </div>
+                  </div>
+
+
+                  <div class="col-12 p-0 rank_title py-2 my-2"><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star"></i></div>
+                  <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 3">
                     <img :src="file.url" alt="" class="w-100">
                     <div>
                       <p class="m-0 p-0 coll_name text-center">{{file.charactor}}</p>
