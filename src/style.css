@@ -104,3 +104,10 @@ html,body{
     box-shadow: none;
     color: #fff !important;
 }
+.qr{
+    margin-top: -25px;
+    border: 10px solid var(--colorpink);
+    padding: 10px;
+    border-radius: 100%;
+    background-color: #fff;
+}
