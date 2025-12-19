@@ -35,7 +35,7 @@ new Vue({
         this.love()
         this.allp()
         try {
-          const debugEl = document.getElementById('debug')
+          
           const { data, error } = await supabaseClient
             .from('apr')
             .select('*')
@@ -45,16 +45,10 @@ new Vue({
         
           this.collection = data || []
 
-          if (debugEl) {
-            debugEl.textContent = 'data: ' + JSON.stringify(data, null, 2) +
-                                  '\n\nerror: ' + JSON.stringify(error, null, 2)
-          }
+          
         
         } catch (err) {
           console.error('Supabase select failed:', err)
-          if (debugEl) {
-            debugEl.textContent = 'Supabase select failed:\n' + err.message
-          }
         }
         
     },
