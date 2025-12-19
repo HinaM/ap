@@ -260,23 +260,27 @@ new Vue({
         },
         async minus(id,num){
 
-          const newNum = num - 1;
+          if (num <= 0){
+            alert("不得小於0");
+          }else{
+            const newNum = num - 1;
           
           
-          const { error: updateError } = await supabaseClient
-          .from('apr')
-          .update({ num: newNum})
-          .eq('id', id);
+            const { error: updateError } = await supabaseClient
+            .from('apr')
+            .update({ num: newNum})
+            .eq('id', id);
 
-          if (updateError) {
-            alert("更新失敗：" + updateError.message);
-            console.error(updateError);
-            return;
-          }
+            if (updateError) {
+              alert("更新失敗：" + updateError.message);
+              console.error(updateError);
+              return;
+            }
 
-          const item = this.collection.find(f => f.id === id);
-          if (item) {
-            item.num = newNum;
+            const item = this.collection.find(f => f.id === id);
+            if (item) {
+              item.num = newNum;
+            }
           }
        
   
