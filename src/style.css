@@ -16,6 +16,15 @@ html,body{
 .bg-pink{
     color: var(--colorpink);
 }
+.bgc-pink{
+    background-color: var(--colorpink);
+    transition: 0.3s;
+}
+.bgc-pink:hover , .bgc-pink:focus{
+    background-color: var(--colorpinker) !important;
+    border: 1px solid var(--colorpinker) !important;
+    box-shadow: none;
+}
 .color-pink{
     color: var(--colorpink);
 }
@@ -130,6 +139,11 @@ html,body{
 }
 .coll_name{
     font-size: 12px;
+}
+.counter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 /*
 .dec{

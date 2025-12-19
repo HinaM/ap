@@ -42,9 +42,16 @@
                 <div class="row">
                   <div class="col-6 p-1" v-for="(file,i) in collection" >
                     <img :src="file.url" alt="" class="w-100">
-                    <p class="m-0 p-0 coll_name text-center">{{file.charactor}}</p>
-                    <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
-                    <p class="m-0 p-0">{{file.num}}</p>
+                    <div>
+                      <p class="m-0 p-0 coll_name text-center">{{file.charactor}}</p>
+                      <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
+                      <div class="counter">
+                        <button class="btn bgc-pink"><i class="fa-solid fa-plus"></i></button>
+                        <p class="m-0 p-0">{{file.num}}</p>
+                        <button class="btn bgc-pink"><i class="fa-solid fa-minus"></i></button>
+                      </div>
+                      
+                    </div>
                   </div>
                   
                 </div>
