@@ -46,9 +46,9 @@ new Vue({
           if (error) throw error
         
           this.collection = data || []
-          this.catalist = [...new Set(this.collection.map(item => item.catalog))];
+          this.catalist = [...new Set(this.collection.map(item => item.catalog))] || []
 
-          
+
           
         
         } catch (err) {
