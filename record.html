@@ -48,8 +48,10 @@
                   <div class="rec_card card col-12 my-1" v-for="i in record">
                     <div class="card-body p-2">
                       <p class="p-0 m-0">{{ i.title }}</p>
-                      <p class="p-0 m-0 text-secondary"><i class="fa-solid fa-calendar me-2"></i>{{ i.time }}</p>
-                      <p class="p-0 m-0"><i class="fa-solid fa-location-dot me-2"></i>{{ i.place }}</p>
+                      <p class="p-0 m-0 pb-1" style="color: #f6d604;"><i class="fa-solid fa-star me-1" v-for="i in i.star"></i></p>
+
+                      <p class="p-0 m-0 text-secondary" style="font-size: 12px;"><i class="fa-solid fa-calendar me-2"></i>{{ i.time }}　｜　<i class="fa-solid fa-location-dot me-2"></i>{{ i.place }}</p>
+                     
                     </div>
                   </div>
 
