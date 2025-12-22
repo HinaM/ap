@@ -25,6 +25,7 @@ new Vue({
         season: "甜點季度",
         level: 4,
         call: "鑽石甜點",
+        record: [],
         collection: [],
         catalog: "第一彈",
         catalist: [],
@@ -52,6 +53,24 @@ new Vue({
         
           this.collection = data || []
           this.catalist = [...new Set(this.collection.map(item => item.catalog))] || []
+
+
+          
+        
+        } catch (err) {
+          console.error('Supabase select failed:', err)
+        }
+        try {
+          
+          const { data, error } = await supabaseClient
+            .from('apr_rec')
+            .select('*')
+            .order('id', { ascending: true })
+        
+          if (error) throw error
+        
+          this.record = data || []
+          
 
 
           
