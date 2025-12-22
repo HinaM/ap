@@ -65,7 +65,8 @@ new Vue({
           const { data, error } = await supabaseClient
             .from('apr_rec')
             .select('*')
-            .order('id', { ascending: true })
+            .order('time', { ascending: false })
+            .order('id', { ascending: false })
         
           if (error) throw error
         

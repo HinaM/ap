@@ -43,11 +43,9 @@
                   
                   
 
-
-                  {{record}}
-                  <div class="rec_card card col-12 my-1" v-for="i in record">
+                  <div class="rec_card card col-12 my-1" v-for="(i,index) in record" :data-bs-target="'#m' + index" data-bs-toggle="modal">
                     <div class="card-body p-2">
-                      <p class="p-0 m-0">{{ i.title }}</p>
+                      <p class="p-0 m-0">{{ i.title }} {{index}}</p>
                       <p class="p-0 m-0 pb-1" style="color: #f6d604;"><i class="fa-solid fa-star me-1" v-for="i in i.star"></i></p>
 
                       <p class="p-0 m-0 text-secondary" style="font-size: 12px;"><i class="fa-solid fa-calendar me-2"></i>{{ i.time }}　｜　<i class="fa-solid fa-location-dot me-2"></i>{{ i.place }}</p>
@@ -112,7 +110,7 @@
 
     
 
-    <div v-for="(file,i) in lovefiles" class="modal fade" :id="'m' + i" tabindex="-1">
+    <div v-for="(i,index) in record" class="modal fade" :id="'m' + index" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header" style="background-color: #f460a6;">
@@ -120,12 +118,9 @@
             <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
-            <img :src="file.url" alt="" class="w-100" :data-bs-target="'#m' + i" data-bs-toggle="modal">
+            {{i}}
 
-            <div class="w-100 d-flex align-items-center justify-content-center mt-3">
-              <button class="w-50 btn btn-customer" type="submit" @click="go(file.url)"><i class="fa-solid fa-download me-2"></i>下載圖片</button>
-              
-            </div>
+          
             
           </div>
         </div>
@@ -133,26 +128,7 @@
     </div>
 
 
-    <div v-for="(file,i) in allph9" class="modal fade" :id="'ml' + i" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header" style="background-color: #f460a6;">
-            
-            <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <img :src="file.url" alt="" class="w-100" :data-bs-target="'#ml' + i" data-bs-toggle="modal">
-
-            <p class="mt-3 p-0 text-center text-secondary">上傳日期：{{file.addedOn}}</p>
-            <div class="w-100 d-flex align-items-center justify-content-center">
-              <button class="w-50 btn btn-customer" type="submit" @click="go(file.url)"><i class="fa-solid fa-download me-2"></i>下載圖片</button>
-              
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
+   
     
   </div>
     
