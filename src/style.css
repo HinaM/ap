@@ -165,6 +165,23 @@ html,body{
 .rec_card{
     border-left: var(--colorpink) 5px solid;
 }
+.rec_insert{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 75px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: #ad65f7;
+    border-radius: 100%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.rec_insert:hover{
+    background-color: #9e5ce0;
+}
 /*
 .dec{
     width: 30px;
