@@ -33,7 +33,13 @@ new Vue({
           "陽葵": "#e44d97",
           "美月": "#40bedf",
           "櫻":"#e64064"
-        }
+        },
+        upload_title: "",
+        upload_star: null,
+        upload_play: null,
+        upload_time: "",
+        upload_place: "",
+        upload_description: ""
     },
     
     async mounted() {
@@ -316,6 +322,53 @@ new Vue({
          
           
   
+        },
+        async insert(){
+
+          if (
+            !this.upload_title.trim() ||
+            !this.upload_description.trim() ||
+            !this.upload_time.trim() ||
+            !this.upload_place.trim()
+          ) {
+            alert("請輸入所有欄位內容。");
+            return;
+          }
+  
+          const star = Number(this.upload_star);
+  
+          if (isNaN(star) || star <= 0 || star > 10) {
+            alert("請輸入正確數量。");
+            return;
+          }
+
+          const play = Number(this.upload_play);
+  
+          if (isNaN(play) || play <= 0 || play > 5) {
+            alert("請輸入正確數量。");
+            return;
+          }
+
+          const { data, error } = await supabaseClient
+          .from('apr_rec')
+          .insert([
+            {
+              title: this.upload_title,
+              star: this.upload_star,
+              place: this.upload_place,
+              time: this.upload_time,
+              description: this.upload_description,
+              play: this.upload_play
+            }
+          ])
+
+          if (error) {
+            console.error("Insert failed:", error)
+          } else {
+            console.log("Insert success:", data)
+            alert("修改成功！");
+            window.location.reload();
+          }
         }
         
     },

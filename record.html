@@ -119,12 +119,34 @@
                 <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-              ...
+                <div class="my-2">
+                    <label class="p-0 col-form-label">標題</label>
+                    <input type="text" class="form-control" v-model="upload_title">
+                </div>
+                <div class="my-2">
+                    <label class="p-0 col-form-label">過關得分</label>
+                    <input type="number" class="form-control" v-model="upload_star">
+                </div>
+                <div class="my-2">
+                    <label class="p-0 col-form-label">遊玩日期</label>
+                    <input type="date" class="form-control" v-model="upload_time">
+                </div>
+                <div class="my-2">
+                    <label class="p-0 col-form-label">遊玩店鋪</label>
+                    <input type="text" class="form-control" v-model="upload_place">
+                </div>
+                <div class="my-2">
+                  <label class="p-0 col-form-label">投卡數量</label>
+                  <input type="number" class="form-control" v-model="upload_play">
+              </div>
+                <div class="my-2">
+                    <label class="p-0 col-form-label">補充</label>
+                    <textarea class="form-control" v-model="upload_description"></textarea>
+                </div>
+                <button class="btn w-100 btn-primary" type="button" style="background-color: #ad65f7; border-color: #ad65f7;" @Click="insert">上傳紀錄</button>                 
+
             </div>
-            <div class="modal-footer">
-              
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            
           </div>
         </div>
       </div>
