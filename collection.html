@@ -71,8 +71,10 @@
                   <div class="col-12 p-0 rank_title py-2 my-2"><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star"></i></div>
                   <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 3">
                     <img :src="file.url" alt="" class="w-100">
-                    <div>
-                      <p class="m-0 p-0 coll_name text-center">{{file.charactor}}</p>
+                    <div class="my-1">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <p class="m-0 p-0 px-1 coll_name" style="font-size: 15px; display: inline-block; border-radius: 5px;" :style=" {backgroundColor: colorMap[file.charactor]} ">{{file.charactor}}</p>
+                      </div>
                       <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
                       <div class="counter">
                         <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
@@ -87,8 +89,10 @@
                   <div class="col-12 p-0 rank_title py-2 my-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star"></i></div>
                   <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 2">
                     <img :src="file.url" alt="" class="w-100">
-                    <div>
-                      <p class="m-0 p-0 coll_name text-center">{{file.charactor}}</p>
+                    <div class="my-1">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <p class="m-0 p-0 px-1 coll_name" style="font-size: 15px; display: inline-block; border-radius: 5px;" :style=" {backgroundColor: colorMap[file.charactor]} ">{{file.charactor}}</p>
+                      </div>
                       <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
                       <div class="counter">
                         <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
