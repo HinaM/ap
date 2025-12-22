@@ -44,8 +44,8 @@
                   
                     <select class="form-select" aria-label="Default select example" v-model="catalog">
                         
-                        <option value="第一彈" selected>第一彈</option>
-                        <option value="第二彈">第二彈</option>
+                        <option :value="i" v-for="i in catalist">{{i}}</option>
+                        
                         
                       </select>
                   </div>

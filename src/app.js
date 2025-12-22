@@ -26,7 +26,8 @@ new Vue({
         level: 4,
         call: "鑽石甜點",
         collection: [],
-        catalog: "第一彈"
+        catalog: "第一彈",
+        catalist: []
     },
     
     async mounted() {
@@ -45,7 +46,9 @@ new Vue({
           if (error) throw error
         
           this.collection = data || []
+          this.catalist = [...new Set(this.collection.map(item => item.catalog))];
 
+          
           
         
         } catch (err) {
