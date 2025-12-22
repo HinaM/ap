@@ -45,6 +45,13 @@
 
 
                   {{record}}
+                  <div class="rec_card card col-12 my-1" v-for="i in record">
+                    <div class="card-body p-2">
+                      <p class="p-0 m-0">{{ i.title }}</p>
+                      <p class="p-0 m-0 text-secondary"><i class="fa-solid fa-calendar me-2"></i>{{ i.time }}</p>
+                      <p class="p-0 m-0"><i class="fa-solid fa-location-dot me-2"></i>{{ i.place }}</p>
+                    </div>
+                  </div>
 
                   
                   

@@ -162,6 +162,9 @@ html,body{
       #79d7ff 100%);
     color: #fffabc;
 }
+.rec_card{
+    border-left: var(--colorpink) 5px solid;
+}
 /*
 .dec{
     width: 30px;
