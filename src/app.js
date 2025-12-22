@@ -27,7 +27,12 @@ new Vue({
         call: "鑽石甜點",
         collection: [],
         catalog: "第一彈",
-        catalist: []
+        catalist: [],
+        colorMap: {
+          "陽葵": "#f7c7db",
+          "美月": "#40bedf",
+          "櫻":"#e64064"
+        }
     },
     
     async mounted() {
@@ -291,8 +296,7 @@ new Vue({
          
           
   
-        },
-        
+        }
         
     },
     computed: {

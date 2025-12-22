@@ -1,9 +1,12 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 *{
     /*border: 1px solid #000;  */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     position: relative;
+    font-family: "cwTeXYen", "Montserrat" ,sans-serif;
 }
 :root{
     --colorpink: #f460a6;
