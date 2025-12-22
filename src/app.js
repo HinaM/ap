@@ -29,7 +29,7 @@ new Vue({
         catalog: "第一彈",
         catalist: [],
         colorMap: {
-          "陽葵": "#f7c7db",
+          "陽葵": "#e44d97",
           "美月": "#40bedf",
           "櫻":"#e64064"
         }
