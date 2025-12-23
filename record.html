@@ -118,32 +118,37 @@
             <div class="modal-header">
                 <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body">
-                <div class="my-2">
+            <div class="modal-body row">
+                <div class="my-1 col-12">
                     <label class="p-0 col-form-label">標題</label>
                     <input type="text" class="form-control" v-model="upload_title">
                 </div>
-                <div class="my-2">
+                <div class="my-1">
+                  <label class="p-0 col-form-label">遊玩日期</label>
+                  <input type="date" class="form-control" v-model="upload_time">
+                </div>
+                <div class="my-1 col-6">
                     <label class="p-0 col-form-label">過關得分</label>
                     <input type="number" class="form-control" v-model="upload_star">
                 </div>
-                <div class="my-2">
-                    <label class="p-0 col-form-label">遊玩日期</label>
-                    <input type="date" class="form-control" v-model="upload_time">
+                <div class="my-1 col-6">
+                  <label class="p-0 col-form-label">投卡數量</label>
+                  <input type="number" class="form-control" v-model="upload_play">
                 </div>
-                <div class="my-2">
+                <div class="my-1">
                     <label class="p-0 col-form-label">遊玩店鋪</label>
                     <input type="text" class="form-control" v-model="upload_place">
                 </div>
-                <div class="my-2">
-                  <label class="p-0 col-form-label">投卡數量</label>
-                  <input type="number" class="form-control" v-model="upload_play">
-              </div>
-                <div class="my-2">
+                
+                <div class="my-1">
                     <label class="p-0 col-form-label">補充</label>
                     <textarea class="form-control" v-model="upload_description"></textarea>
                 </div>
-                <button class="btn w-100 btn-primary" type="button" style="background-color: #ad65f7; border-color: #ad65f7;" @Click="insert">上傳紀錄</button>                 
+
+                <div class="my-1">
+                  <button class="btn w-100 btn-primary my-2" type="button" style="background-color: #ad65f7; border-color: #ad65f7;" @Click="insert">上傳紀錄</button>                 
+
+              </div>
 
             </div>
             
@@ -162,6 +167,11 @@
           </div>
           <div class="modal-body">
             {{i}}
+            <div>
+              <button class="btn text-white" type="button" style="background-color: #ad65f7; border-color: #ad65f7;">編輯</button>
+              <button class="btn text-white" type="button" style="background-color: #ad65f7; border-color: #ad65f7;">刪除</button>
+
+            </div>
 
           
             
