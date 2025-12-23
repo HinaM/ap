@@ -39,6 +39,17 @@
             <div class="d-flex align-items-center justify-content-center mt-3">
               <div class="container-fluid">
                 <p class="m-0 color-pink mb-3 text-center tw-7" style="font-size: 4.5vw;"><i class="fa-solid fa-bars me-2"></i>紀錄</p>
+
+                  <div class="row mb-3">
+                    <select class="form-select" v-model="month_rec">
+                        
+                      <option :value="i" v-for="i in monthList">{{i}}</option>
+                      
+                      
+                    </select>
+                  </div>
+                
+
                 <div class="row mb-3">
                   
                   <div class="accordion p-0 my-1" v-for="(i,index) in record" :key="index">
@@ -68,7 +79,16 @@
                         class="accordion-collapse collapse"
                       >
                         <div class="accordion-body">
+                          
                           {{i.description}}
+                          <hr>
+                          <div class="body-actions text-secondary d-flex align-items-center justify-content-end">
+                            <button class="btn w-25 btn-primary me-2" type="button" style="background-color: #f460a6; border-color: #f460a6;"><i class="fa-solid fa-pen-to-square me-2"></i>編輯</button>                 
+                            <button class="btn w-25 btn-primary" type="button" style="background-color: #f460a6; border-color: #f460a6;"><i class="fa-solid fa-trash me-2"></i>刪除</button>                 
+
+                            
+                            
+                          </div>
                         </div>
                       </div>
                     </div>

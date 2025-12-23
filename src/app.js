@@ -39,16 +39,21 @@ new Vue({
         upload_play: null,
         upload_time: "",
         upload_place: "",
-        upload_description: ""
+        upload_description: "",
+        monthList: [],
+        month_rec: "2025-12"
     },
     
     async mounted() {
+        this.generateMonths()
         this.fetchFiles()
         this.mainCo()
         this.mainPro()
         this.love()
         this.allp()
         try {
+
+          
           
           const { data, error } = await supabaseClient
             .from('apr')
@@ -67,6 +72,8 @@ new Vue({
           console.error('Supabase select failed:', err)
         }
         try {
+
+        
           
           const { data, error } = await supabaseClient
             .from('apr_rec')
@@ -369,7 +376,45 @@ new Vue({
             alert("上傳成功！");
             window.location.reload();
           }
+        },
+        generateMonths() {
+          const result = []
+    
+          // 取得現在時間
+          const now = new Date()
+          const currentYear = now.getFullYear()
+          const currentMonth = now.getMonth() + 1 // 月份從 0 開始，因此 +1
+    
+          // 生成起始月份（當年的 11 月）
+          let startYear = currentYear
+          let startMonth = 11
+    
+          // 若現在月份 < 11，表示應該從「去年 11 月」開始
+          if (currentMonth < 11) {
+            startYear = currentYear - 1
+          }
+    
+          // 從 startYear-11月 開始一路加到現在
+          let y = startYear
+          let m = 11
+    
+          while (y < currentYear || (y === currentYear && m <= currentMonth)) {
+            const formatted = `${y}-${String(m).padStart(2, "0")}`
+            result.push(formatted)
+    
+            // 加一個月
+            m++
+            if (m > 12) {
+              m = 1
+              y++
+            }
+          }
+    
+          this.monthList = result
         }
+        
+        
+        
         
     },
     computed: {
