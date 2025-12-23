@@ -183,6 +183,41 @@ html,body{
 .rec_insert:hover{
     background-color: #9e5ce0;
 }
+.accordion-button {
+    background-color: transparent !important;
+    box-shadow: none !important;   /* 去掉外框陰影 */
+  }
+/* 隱藏 bootstrap 的箭頭 */
+.accordion-button::after {
+  display: none !important;
+}
+
+/* 預設為 "+" （因為預設有 collapsed） */
+.accordion-button.collapsed::before {
+  content: "\f067"; /* FontAwesome plus */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 20px;
+  position: absolute;
+  right: 16px;
+  color: #f460a6;
+}
+
+/* 展開時為 "-" （因為展開時沒有 collapsed） */
+.accordion-button:not(.collapsed)::before {
+  content: "\f068"; /* FontAwesome minus */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 20px;
+  position: absolute;
+  right: 16px;
+  color: #f460a6;
+}
+/* 展開後 */
+.accordion-button:not(.collapsed) {
+    background-color: #ffe4f4 !important; /* 粉色，可改 */
+    color: #f460a6;
+  }
 /*
 .dec{
     width: 30px;

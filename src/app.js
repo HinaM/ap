@@ -366,7 +366,7 @@ new Vue({
             console.error("Insert failed:", error)
           } else {
             console.log("Insert success:", data)
-            alert("修改成功！");
+            alert("上傳成功！");
             window.location.reload();
           }
         }

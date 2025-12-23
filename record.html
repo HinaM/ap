@@ -41,17 +41,41 @@
                 <p class="m-0 color-pink mb-3 text-center tw-7" style="font-size: 4.5vw;"><i class="fa-solid fa-bars me-2"></i>紀錄</p>
                 <div class="row mb-3">
                   
+                  <div class="accordion p-0 my-1" v-for="(i,index) in record" :key="index">
+                    <div class="accordion-item">
+                      
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          :data-bs-target="'#panelsStayOpen-collapse' + index"
+                          aria-expanded="false"
+                          :aria-controls="'panelsStayOpen-collapse' + index"
+                        >
+                        <div >
+                          <p class="p-0 m-0">{{ i.title }}</p>
+                          <p class="p-0 m-0 pb-1" style="color: #f6d604;"><i class="fa-solid fa-star me-1" v-for="i in i.star"></i></p>
+    
+                          <p class="p-0 m-0 text-secondary" style="font-size: 12px;"><i class="fa-solid fa-calendar me-2"></i>{{ i.time }}　｜　<i class="fa-solid fa-location-dot me-2"></i>{{ i.place }}</p>
+                         
+                        </div>
+                        </button>
+                      </h2>
                   
-
-                  <div class="rec_card card col-12 my-1" v-for="(i,index) in record" :data-bs-target="'#m' + index" data-bs-toggle="modal">
-                    <div class="card-body p-2">
-                      <p class="p-0 m-0">{{ i.title }}</p>
-                      <p class="p-0 m-0 pb-1" style="color: #f6d604;"><i class="fa-solid fa-star me-1" v-for="i in i.star"></i></p>
-
-                      <p class="p-0 m-0 text-secondary" style="font-size: 12px;"><i class="fa-solid fa-calendar me-2"></i>{{ i.time }}　｜　<i class="fa-solid fa-location-dot me-2"></i>{{ i.place }}</p>
-                     
+                      <div
+                        :id="'panelsStayOpen-collapse' + index"
+                        class="accordion-collapse collapse"
+                      >
+                        <div class="accordion-body">
+                          {{i.title}}
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  
+
+                  
 
                   
                   
