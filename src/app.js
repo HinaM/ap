@@ -502,14 +502,14 @@ new Vue({
           const file = e.target.files[0]
           if (!file) return
       
-          // 生成不會重複的檔名
+         
           const fileName = `${Date.now()}_${file.name}`
-      
-          // 上傳到 supabase storage
+          const filePath = `allPhoto/${fileName}`
+          
           const { data, error } = await supabaseClient
             .storage
-            .from('aipri/allPhoto') // ← 換成你的 bucket 名稱
-            .upload(fileName, file)
+            .from('aipri') 
+            .upload(filePath, file)
       
           if (error) {
             console.error("Upload failed:", error)
@@ -517,11 +517,11 @@ new Vue({
             return
           }
       
-          // 拿到公開網址
+        
           const { data: urlData } = supabaseClient
             .storage
-            .from('aipri/allPhoto')
-            .getPublicUrl(fileName)
+            .from('aipri')
+            .getPublicUrl(filePath)
       
           this.uploadedUrl = urlData.publicUrl
       
