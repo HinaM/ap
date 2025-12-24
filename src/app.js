@@ -469,8 +469,8 @@ new Vue({
             .eq('id', id)
       
           if (error) {
-            console.error("Delete failed:", error)
-            alert("刪除失敗")
+            console.error("update failed:", error)
+            alert("失敗")
             return
           }
       
