@@ -116,6 +116,7 @@
             <img :src="file.url" alt="" class="w-100" :data-bs-target="'#ml' + i" data-bs-toggle="modal">
 
             <p class="mt-3 p-0 text-center text-secondary">上傳日期：{{file.addedOn}}</p>
+            <p class="mt-3 p-0 text-center text-secondary">上傳日期：{{file.name}}</p>
             <div class="w-100 d-flex align-items-center justify-content-center">
               <button class="w-50 btn btn-customer" type="submit" @click="go(file.url)"><i class="fa-solid fa-download me-2"></i>下載圖片</button>
               

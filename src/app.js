@@ -502,8 +502,8 @@ new Vue({
           const file = e.target.files[0]
           if (!file) return
       
-         
-          const fileName = `${Date.now()}_${file.name}`
+          const ext = file.name.split('.').pop()
+          const fileName = `${Date.now()}.${ext}`
           const filePath = `allPhoto/${fileName}`
           
           const { data, error } = await supabaseClient
