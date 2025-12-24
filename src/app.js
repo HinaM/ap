@@ -41,7 +41,8 @@ new Vue({
         upload_place: "",
         upload_description: "",
         monthList: [],
-        month_rec: "2025-12"
+        month_rec: "2025-12",
+        uploadedUrl: ""
     },
     
     async mounted() {
@@ -494,6 +495,39 @@ new Vue({
             console.error(error);
           }
         },
+        chooseFile() {
+          this.$refs.fileInput.click()
+        },
+        async uploadImage(e) {
+          const file = e.target.files[0]
+          if (!file) return
+      
+          // 生成不會重複的檔名
+          const fileName = `${Date.now()}_${file.name}`
+      
+          // 上傳到 supabase storage
+          const { data, error } = await supabaseClient
+            .storage
+            .from('aipri/allPhoto') // ← 換成你的 bucket 名稱
+            .upload(fileName, file)
+      
+          if (error) {
+            console.error("Upload failed:", error)
+            alert("上傳失敗")
+            return
+          }
+      
+          // 拿到公開網址
+          const { data: urlData } = supabaseClient
+            .storage
+            .from('aipri/allPhoto')
+            .getPublicUrl(fileName)
+      
+          this.uploadedUrl = urlData.publicUrl
+      
+          alert("上傳成功！")
+          window.location.reload();
+        }
         /*
         async updateRow(id) {
 
