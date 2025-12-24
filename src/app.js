@@ -84,7 +84,7 @@ new Vue({
           if (error) throw error
         
           this.record = data || []
-          
+       
 
 
           
@@ -411,7 +411,58 @@ new Vue({
           }
     
           this.monthList = result
+        },
+        async fetchByMonth() {
+          if (!this.month_rec) return
+        
+          const [yStr, mStr] = this.month_rec.split('-')   // "2025", "12"
+          const y = Number(yStr)
+          const m = Number(mStr)
+        
+          const startDate = `${yStr}-${mStr}-01`          // "2025-12-01"
+        
+          // 算「下一個月」的 1 號
+          const next = new Date(y, m) // JS 的月是 0-based，所以 (y, m) 就是下個月
+          const nextY = next.getFullYear()
+          const nextM = String(next.getMonth() + 1).padStart(2, '0')
+          const endDate = `${nextY}-${nextM}-01`          // 比如 "2026-01-01"
+        
+          const { data, error } = await supabaseClient
+            .from('apr_rec')
+            .select('*')
+            .gte('time', startDate)   // >= 本月 1 號
+            .lt('time', endDate)      // < 下個月 1 號
+            .order('time', { ascending: false })
+            .order('id', { ascending: false })
+        
+          if (error) {
+            console.error(error)
+            return
+          }
+        
+          this.record = data || []
+        
+          console.log('month_rec:', this.month_rec)
+          console.log('startDate:', startDate)
+          console.log('endDate:', endDate)
+          console.log('result:', this.record)
+        },
+        async deleteRow(id) {
+          const { data, error } = await supabaseClient
+            .from('apr_rec')
+            .delete()
+            .eq('id', id)
+      
+          if (error) {
+            console.error("Delete failed:", error)
+            alert("刪除失敗")
+            return
+          }
+      
+          alert("刪除成功")
+          window.location.reload();
         }
+        
         
         
         
