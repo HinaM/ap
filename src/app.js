@@ -461,6 +461,20 @@ new Vue({
       
           alert("刪除成功")
           window.location.reload();
+        },
+        async editRow(id) {
+          const { data, error } = await supabaseClient
+            .from('apr_rec')
+            .update({edit: true})
+            .eq('id', id)
+      
+          if (error) {
+            console.error("Delete failed:", error)
+            alert("刪除失敗")
+            return
+          }
+      
+          
         }
         
         
