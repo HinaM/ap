@@ -481,6 +481,20 @@ new Vue({
       
           
         },
+        async finishEdit(item) {
+          item.edit = false;
+        
+          const { error } = await supabaseClient
+            .from('apr_rec')
+            .update({ description: item.description, edit: false })
+            .eq('id', item.id);
+        
+          if (error) {
+            alert("更新失敗");
+            console.error(error);
+          }
+        },
+        /*
         async updateRow(id) {
 
           const row = this.record.find(r => r.id === id);
@@ -502,7 +516,7 @@ new Vue({
       
           
         }
-        
+        */
         
         
         

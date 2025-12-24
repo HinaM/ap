@@ -83,11 +83,10 @@
                           
 
                           <p v-if="!i.edit">{{i.description}}</p>
-                          <input v-else type="text" class="form-control" v-model="i.description">
+                          <input v-else type="text" class="form-control" v-model="i.description" @blur="finishEdit(i)" @keyup.enter="finishEdit(i)">
                           <hr>
                           <div class="body-actions text-secondary d-flex align-items-center justify-content-end">
                             <button v-if="!i.edit" class="btn btn-primary me-2" type="button" style="background-color: #f460a6; border-color: #f460a6;" @click="editRow(i.id)"><i class="fa-solid fa-pen-to-square me-2"></i>編輯</button>
-                            <button v-else class="btn btn-primary me-2" type="button" style="background-color: #f460a6; border-color: #f460a6;" @click="updateRow(i.id)"><i class="fa-solid fa-pen-to-square me-2"></i>送出</button>                 
 
                             <button class="btn btn-primary" type="button" style="background-color: #f460a6; border-color: #f460a6;" @click="deleteRow(i.id)"><i class="fa-solid fa-trash me-2"></i>刪除</button>                 
 
