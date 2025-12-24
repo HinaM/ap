@@ -527,6 +527,26 @@ new Vue({
       
           alert("上傳成功！")
           window.location.reload();
+        },
+        async deletePhoto(imageName) {
+          if (!confirm("確定要刪除這張照片嗎？")) return
+
+          const filePath = `allPhoto/${imageName}`
+      
+          const { data, error } = await supabaseClient
+          .storage
+          .from('aipri')
+          .remove([filePath])
+      
+          if (error) {
+            console.error("Delete failed:", error)
+            alert("刪除失敗")
+            return
+          }
+      
+          alert("刪除成功！")
+          // 刪除後刷新列表
+          window.location.reload();
         }
         /*
         async updateRow(id) {
