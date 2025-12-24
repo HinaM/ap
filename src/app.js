@@ -466,10 +466,31 @@ new Vue({
 
           const row = this.record.find(r => r.id === id);
           if (row) row.edit = true;
-          
+
           const { data, error } = await supabaseClient
             .from('apr_rec')
             .update({edit: true})
+            .eq('id', id)
+          
+
+          if (error) {
+            console.error("update failed:", error)
+            alert("失敗")
+            return
+          }
+      
+          
+        },
+        async updateRow(id) {
+
+          const row = this.record.find(r => r.id === id);
+          if (!row) return;
+          
+          row.edit = false;
+          
+          const { data, error } = await supabaseClient
+            .from('apr_rec')
+            .update({description: row.description, edit: false})
             .eq('id', id)
           
 
