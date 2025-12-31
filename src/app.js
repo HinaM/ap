@@ -616,7 +616,7 @@ new Vue({
           this.uploading = false;
           this.selectedFile = null;
           this.$refs.fileInput.value = "";
-          alert("上傳成功！");
+          alert("上傳成功！" + fileName );
           console.log("圖片 URL：", urlData.publicUrl);
           window.location.reload();
 
