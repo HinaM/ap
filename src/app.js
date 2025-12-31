@@ -43,7 +43,8 @@ new Vue({
         monthList: [],
         month_rec: "2025-12",
         uploadedUrl: "",
-        pageLoading: true
+        pageLoading: true,
+        loading: false
     },
     
     async mounted() {

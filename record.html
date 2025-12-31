@@ -220,8 +220,16 @@
                 </div>
 
                 <div class="my-1">
-                  <button class="btn w-100 btn-primary my-2" type="button" style="background-color: #ad65f7; border-color: #ad65f7;" @Click="insert">上傳紀錄</button>                 
 
+                  <button class="btn w-100 btn-primary my-2" @Click="insert" :disabled="loading" type="button" style="background-color: #ad65f7; border-color: #ad65f7;">
+                    <span v-if="loading">
+                      <div class="spinner-border spinner-border-sm me-2" style="color: #fff" role="status"></div>
+                      處理中…
+                    </span>
+                  
+                    <span v-else>上傳</span>
+                  </button>
+                  
               </div>
 
             </div>
