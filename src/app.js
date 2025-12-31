@@ -521,23 +521,18 @@ new Vue({
         
           return true; 
         },
-        async finishEdit(item, field) {
-
-          item._editingField = field;
-
-          if (!this.validateStar(item)) {
+        async finishEdit(item) {
+          
+          if (item.star < 1 || item.star > 10) {
+            alert("星數必須 1～10");
             return;
           }
-        
         
           if (!item.time || !item.place || !item.description) {
-            alert("時間、地點、描述都必須填寫！");
+            alert("不能為空");
             return;
           }
-
-    
-          item.edit = false;
-
+        
           const { error } = await supabaseClient
             .from("apr_rec")
             .update({
@@ -548,12 +543,15 @@ new Vue({
               edit: false
             })
             .eq("id", item.id);
-
+        
           if (error) {
             alert("更新失敗");
-            console.error(error);
+            return;
           }
-        },
+        
+          item.edit = false;
+        }
+        ,
         chooseFile() {
           this.$refs.fileInput.click()
         },
