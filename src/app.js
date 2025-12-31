@@ -276,33 +276,42 @@ new Vue({
         go(url) {
           window.location.href = url;
         },
-        async plus(id,num){
-
+        async plus(id, num) {
           const newNum = num + 1;
-          
-          
-          const { error: updateError } = await supabaseClient
-          .from('apr')
-          .update({ num: newNum})
-          .eq('id', id);
-
-          if (updateError) {
-            alert("更新失敗：" + updateError.message);
-            console.error(updateError);
-            return;
-          }
-
-          const item = this.collection.find(f => f.id === id);
-          if (item) {
-            item.num = newNum;
-          }
         
-          
-  
+          try {
+    
+            const { data, error } = await supabaseClient
+              .from("apr")
+              .update({ num: newNum })
+              .eq("id", id)
+              .select(); 
+        
+            if (error) {
+              alert("更新失敗：" + error.message);
+              console.error("Supabase error:", error);
+              return;
+            }
+        
+        
+            if (!data || data.length === 0) {
+              alert("更新失敗：未更新任何資料（可能是 ID 不存在或 RLS 阻擋）");
+              console.error("Update returned no rows");
+              return;
+            }
+        
          
-          
-  
-        },
+            const item = this.collection.find(f => f.id === id);
+            if (item) {
+              item.num = newNum;
+            }
+        
+          } catch (err) {
+            alert("更新失敗（程式錯誤）：" + err.message);
+            console.error("Runtime error:", err);
+          }
+        }
+        ,
         async minus(id,num){
 
           if (num <= 0){
@@ -311,21 +320,38 @@ new Vue({
             const newNum = num - 1;
           
           
-            const { error: updateError } = await supabaseClient
-            .from('apr')
-            .update({ num: newNum})
-            .eq('id', id);
-
-            if (updateError) {
-              alert("更新失敗：" + updateError.message);
-              console.error(updateError);
-              return;
+            try {
+    
+              const { data, error } = await supabaseClient
+                .from("apr")
+                .update({ num: newNum })
+                .eq("id", id)
+                .select(); 
+          
+              if (error) {
+                alert("更新失敗：" + error.message);
+                console.error("Supabase error:", error);
+                return;
+              }
+          
+          
+              if (!data || data.length === 0) {
+                alert("更新失敗：未更新任何資料（可能是 ID 不存在或 RLS 阻擋）");
+                console.error("Update returned no rows");
+                return;
+              }
+          
+           
+              const item = this.collection.find(f => f.id === id);
+              if (item) {
+                item.num = newNum;
+              }
+          
+            } catch (err) {
+              alert("更新失敗（程式錯誤）：" + err.message);
+              console.error("Runtime error:", err);
             }
-
-            const item = this.collection.find(f => f.id === id);
-            if (item) {
-              item.num = newNum;
-            }
+          
           }
        
   
