@@ -219,6 +219,21 @@ html,body{
     background-color: #ffe4f4 !important; /* 粉色，可改 */
     color: #f460a6;
   }
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.text-pink {
+  color: #f460a6 !important;
+}
 /*
 .dec{
     width: 30px;

@@ -42,7 +42,8 @@ new Vue({
         upload_description: "",
         monthList: [],
         month_rec: "2025-12",
-        uploadedUrl: ""
+        uploadedUrl: "",
+        pageLoading: true
     },
     
     async mounted() {
@@ -52,6 +53,9 @@ new Vue({
         this.mainPro()
         this.love()
         this.allp()
+        setTimeout(() => {
+          this.pageLoading = false;
+        }, 300); 
         try {
 
           
