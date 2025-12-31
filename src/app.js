@@ -492,32 +492,63 @@ new Vue({
           window.location.reload();
         },
         async editRow(id) {
-
           const row = this.record.find(r => r.id === id);
-          if (row) row.edit = true;
-
-          const { data, error } = await supabaseClient
-            .from('apr_rec')
-            .update({edit: true})
-            .eq('id', id)
-          
-
-          if (error) {
-            console.error("update failed:", error)
-            alert("失敗")
-            return
+        
+          if (row) {
+            row.edit = true;
+            row._oldStar = row.star;
           }
-      
-          
-        },
-        async finishEdit(item) {
-          item.edit = false;
         
           const { error } = await supabaseClient
             .from('apr_rec')
-            .update({ description: item.description, edit: false })
-            .eq('id', item.id);
+            .update({ edit: true })
+            .eq('id', id);
         
+          if (error) {
+            alert("失敗");
+            console.error(error);
+          }
+        },
+        validateStar(item) {
+          
+          if (item._editingField !== 'star') return true;
+        
+          if (item.star < 1 || item.star > 10 || isNaN(item.star)) {
+            alert("星數必須在 1～10 之間！");
+            item.star = item._oldStar;
+            return false; 
+          }
+        
+          return true; 
+        },
+        async finishEdit(item, field) {
+
+          item._editingField = field;
+
+          if (!this.validateStar(item)) {
+            return;
+          }
+        
+        
+          if (!item.time || !item.place || !item.description) {
+            alert("時間、地點、描述都必須填寫！");
+            return;
+          }
+
+    
+          item.edit = false;
+
+          const { error } = await supabaseClient
+            .from("apr_rec")
+            .update({
+              star: item.star,
+              time: item.time,
+              place: item.place,
+              description: item.description,
+              edit: false
+            })
+            .eq("id", item.id);
+
           if (error) {
             alert("更新失敗");
             console.error(error);
