@@ -44,7 +44,9 @@ new Vue({
         month_rec: "2025-12",
         uploadedUrl: "",
         pageLoading: true,
-        loading: false
+        loading: false,
+        selectedFile: null,
+        uploading: false
     },
     
     async mounted() {
@@ -362,6 +364,8 @@ new Vue({
         },
         async insert(){
 
+          this.loading = true; 
+
           if (
             !this.upload_title.trim() ||
             !this.upload_description.trim() ||
@@ -406,6 +410,8 @@ new Vue({
             alert("上傳成功！");
             window.location.reload();
           }
+
+          this.loading = false; 
         },
         generateMonths() {
           const result = []
@@ -557,35 +563,64 @@ new Vue({
         chooseFile() {
           this.$refs.fileInput.click()
         },
+        handleFileSelect(event) {
+          const file = event.target.files[0];
+        
+          if (!file) {
+            this.selectedFile = null;
+            return;
+          }
+        
+          // 型態檢查，不符合直接阻止
+          const allowed = ["image/jpeg", "image/png"];
+          if (!allowed.includes(file.type)) {
+            alert("只允許 JPG / PNG 格式！");
+            this.$refs.fileInput.value = ""; 
+            this.selectedFile = null;
+            return;
+          }
+        
+          this.selectedFile = file;
+        },        
         async uploadImage(e) {
-          const file = e.target.files[0]
-          if (!file) return
-      
-          const ext = file.name.split('.').pop()
-          const fileName = `${Date.now()}.${ext}`
-          const filePath = `allPhoto/${fileName}`
-          
+
+          if (!this.selectedFile) {
+            alert("請先選擇檔案！");
+            return;
+          }
+
+          this.uploading = true;  // 開始 loading
+
+          const file = this.selectedFile;
+          const fileName = `${Date.now()}_${file.name}`;
+          const filePath = `allPhoto/${fileName}`;
+
           const { data, error } = await supabaseClient
             .storage
             .from('aipri') 
-            .upload(filePath, file)
-      
+            .upload(filePath, file);
+
           if (error) {
-            console.error("Upload failed:", error)
-            alert("上傳失敗")
-            return
+            alert("上傳失敗：" + error.message);
+            console.error(error);
+            this.uploading = false;
+            return;
           }
-      
+
         
           const { data: urlData } = supabaseClient
             .storage
             .from('aipri')
-            .getPublicUrl(filePath)
-      
-          this.uploadedUrl = urlData.publicUrl
-      
-          alert("上傳成功！")
+            .getPublicUrl(filePath);
+
+          this.uploading = false;
+          this.selectedFile = null;
+          this.$refs.fileInput.value = "";
+          alert("上傳成功！");
+          console.log("圖片 URL：", urlData.publicUrl);
           window.location.reload();
+
+          
         },
         async deletePhoto(imageName) {
           if (!confirm("確定要刪除這張照片嗎？")) return
