@@ -53,9 +53,6 @@ new Vue({
         this.mainPro()
         this.love()
         this.allp()
-        setTimeout(() => {
-          this.pageLoading = false;
-        }, 300); 
         try {
 
           
@@ -97,6 +94,7 @@ new Vue({
         } catch (err) {
           console.error('Supabase select failed:', err)
         }
+        this.pageLoading = false;
         
     },
     methods: {
