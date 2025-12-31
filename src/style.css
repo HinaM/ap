@@ -234,6 +234,11 @@ html,body{
 .text-pink {
   color: #f460a6 !important;
 }
+.form-control:focus, .form-select:focus {
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: #f460a6 !important; /* 你可以換顏色，或直接拿掉 */
+}
 /*
 .dec{
     width: 30px;
