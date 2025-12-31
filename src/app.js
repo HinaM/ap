@@ -536,6 +536,7 @@ new Vue({
           const { error } = await supabaseClient
             .from("apr_rec")
             .update({
+              title: item.title,
               star: item.star,
               time: item.time,
               place: item.place,
