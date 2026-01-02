@@ -34,6 +34,18 @@
       
 
       <div class="container-fluid profile my-5">
+        
+        
+        <div class="row d-flex align-items-center justify-content-center ">
+          <div class="col-10 p-0 mb-3 d-flex align-items-center justify-content-between">
+            <h3 class="m-0" style="font-size: 4.5vw;"><i class="fa-solid fa-bars me-2"></i>紀錄</h3>
+            <button class="btn btn-primary" type="button" style="background-color: #ad65f7; border-color: #ad65f7;" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-plus me-2"></i>增加</button>
+
+          </div>
+
+        </div>
+
+        
         <div class="row d-flex align-items-center justify-content-center">
           <div class="col-10 bg-white p-2 profiles">
             
@@ -41,7 +53,6 @@
 
             <div class="d-flex align-items-center justify-content-center mt-3">
               <div class="container-fluid">
-                <p class="m-0 color-pink mb-3 text-center tw-7" style="font-size: 4.5vw;"><i class="fa-solid fa-bars me-2"></i>紀錄</p>
 
                   <div class="row mb-3">
                     <select class="form-select" v-model="month_rec" @change="fetchByMonth">
@@ -147,10 +158,11 @@
         </div>
       </div>
 
+      <!--
       <div class="rec_insert text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fa-solid fa-plus"></i>
       </div>
-  
+  -->
   
       <nav class="navbar sticky-bottom "  style="background-color: #f460a6;">
         <div class="container-fluid">

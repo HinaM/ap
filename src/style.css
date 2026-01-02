@@ -37,16 +37,19 @@ html,body{
 .all {
     width: 100%;
     min-height: 100vh;
+    background: #efe1e8;
+    /*
     background: linear-gradient(to right top,
-  #ff9bb5,   /* 粉紅 */
-  #e5a3d7,   /* 粉紫 */
-  #c8b7ec,   /* 淺紫 */
-  #a7c9ff,   /* 淺藍 */
-  #90e0f6,   /* 水藍 */
-  #a8eec1,   /* 薄綠 */
-  #c8f5a6,   /* 淺綠 */
-  #f3f7b3    /* 黃綠 */
+  #ff9bb5, 
+  #e5a3d7, 
+  #c8b7ec,
+  #a7c9ff, 
+  #90e0f6,
+  #a8eec1, 
+  #c8f5a6, 
+  #f3f7b3   
 ) !important;
+*/
 }
 .sticky-top{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -180,6 +183,13 @@ html,body{
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     z-index: 1000;
+}
+.rec_insert_btn{
+    background-color: #ad65f7 !important;
+    border-radius: 100%;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .rec_insert:hover{
     background-color: #9e5ce0;
