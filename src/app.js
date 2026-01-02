@@ -49,7 +49,8 @@ new Vue({
         uploading: false,
         indexMonth: { year: '', month: '' },
         totalCardNum: 0,
-        countThisMonth: null
+        countThisMonth: null,
+        allRecTotal: 0
     },
     
     async mounted() {
@@ -117,6 +118,24 @@ new Vue({
        
 
 
+          
+        
+        } catch (err) {
+          console.error('Supabase select failed:', err)
+        }
+        try {
+        
+          const { data, error } = await supabaseClient
+            .from('apr_rec')
+            .select('*')
+            .order('id', { ascending: false })
+        
+          if (error) {
+            console.error(error)
+            return
+          }
+        
+          this.allRecTotal = data.length
           
         
         } catch (err) {
