@@ -41,7 +41,7 @@ new Vue({
         upload_place: "",
         upload_description: "",
         monthList: [],
-        month_rec: "2025-12",
+        month_rec: "",
         uploadedUrl: "",
         pageLoading: true,
         loading: false,
@@ -62,6 +62,7 @@ new Vue({
         this.getNow()
         this.getTotalCard()
         this.getCountThisMonth()
+        this.initMonthRec()
         try {
 
           
@@ -85,14 +86,32 @@ new Vue({
         try {
 
         
-          
+          if (!this.month_rec) return
+        
+          const [yStr, mStr] = this.month_rec.split('-')   // "2025", "12"
+          const y = Number(yStr)
+          const m = Number(mStr)
+        
+          const startDate = `${yStr}-${mStr}-01`          // "2025-12-01"
+        
+          // 算「下一個月」的 1 號
+          const next = new Date(y, m) // JS 的月是 0-based，所以 (y, m) 就是下個月
+          const nextY = next.getFullYear()
+          const nextM = String(next.getMonth() + 1).padStart(2, '0')
+          const endDate = `${nextY}-${nextM}-01`          // 比如 "2026-01-01"
+        
           const { data, error } = await supabaseClient
             .from('apr_rec')
             .select('*')
+            .gte('time', startDate)   // >= 本月 1 號
+            .lt('time', endDate)      // < 下個月 1 號
             .order('time', { ascending: false })
             .order('id', { ascending: false })
         
-          if (error) throw error
+          if (error) {
+            console.error(error)
+            return
+          }
         
           this.record = data || []
        
@@ -107,6 +126,13 @@ new Vue({
         
     },
     methods: {
+        initMonthRec(){
+          const now = new Date()
+          const y = now.getFullYear()
+          const m = String(now.getMonth() + 1).padStart(2, '0')
+
+          this.month_rec = `${y}-${m}`
+        },
         async fetchFiles () {
             this.loading = true
             this.error = ''
