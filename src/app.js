@@ -490,19 +490,26 @@ new Vue({
           console.log('result:', this.record)
         },
         async deleteRow(id) {
-          const { data, error } = await supabaseClient
+          var conf = confirm('確定要刪除？');
+
+          if (conf){
+            const { data, error } = await supabaseClient
             .from('apr_rec')
             .delete()
             .eq('id', id)
       
-          if (error) {
-            console.error("Delete failed:", error)
-            alert("刪除失敗")
+            if (error) {
+              console.error("Delete failed:", error)
+              alert("刪除失敗")
+              return
+            }
+        
+            alert("刪除成功")
+            window.location.reload();
+          }else{
             return
           }
-      
-          alert("刪除成功")
-          window.location.reload();
+          
         },
         async editRow(id) {
           const row = this.record.find(r => r.id === id);
