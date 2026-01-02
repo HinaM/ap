@@ -46,7 +46,10 @@ new Vue({
         pageLoading: true,
         loading: false,
         selectedFile: null,
-        uploading: false
+        uploading: false,
+        indexMonth: { year: '', month: '' },
+        totalCardNum: 0,
+        countThisMonth: null
     },
     
     async mounted() {
@@ -56,6 +59,9 @@ new Vue({
         this.mainPro()
         this.love()
         this.allp()
+        this.getNow()
+        this.getTotalCard()
+        this.getCountThisMonth()
         try {
 
           
@@ -416,23 +422,23 @@ new Vue({
         generateMonths() {
           const result = []
     
-          // 取得現在時間
+        
           const now = new Date()
           const currentYear = now.getFullYear()
-          const currentMonth = now.getMonth() + 1 // 月份從 0 開始，因此 +1
+          const currentMonth = now.getMonth() + 1
     
-          // 生成起始月份（當年的 11 月）
+        
           let startYear = currentYear
-          let startMonth = 11
+          let startMonth = 12
     
-          // 若現在月份 < 11，表示應該從「去年 11 月」開始
-          if (currentMonth < 11) {
+        
+          if (currentMonth < 12) {
             startYear = currentYear - 1
           }
     
-          // 從 startYear-11月 開始一路加到現在
+        
           let y = startYear
-          let m = 11
+          let m = 12
     
           while (y < currentYear || (y === currentYear && m <= currentMonth)) {
             const formatted = `${y}-${String(m).padStart(2, "0")}`
@@ -641,7 +647,65 @@ new Vue({
           alert("刪除成功！")
           // 刪除後刷新列表
           window.location.reload();
+        },
+        async getNow() {
+          const now = new Date()
+          const currentYear = now.getFullYear()
+          const currentMonth = now.getMonth() + 1
+        
+          this.indexMonth = {
+            year: currentYear,
+            month: currentMonth
+          }
+        },
+        async getTotalCard() {
+          const { data, error } = await supabaseClient
+            .from('apr')
+            .select('num');
+        
+          if (error) {
+            console.error(error);
+            return;
+          }
+        
+          const total = data.reduce((sum, row) => sum + (row.num || 0), 0);
+          this.totalCardNum = total;
+        },
+        getMonthRange() {
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = now.getMonth(); // 0~11
+      
+          const start = new Date(year, month, 1).toISOString().split("T")[0];
+          const end = new Date(year, month + 1, 0).toISOString().split("T")[0];
+      
+          return { start, end };
+        },
+      
+        async getCountThisMonth() {
+          const { start, end } = this.getMonthRange();
+      
+          const { data, count, error } = await supabaseClient
+            .from("apr_rec")
+            .select("*", { count: "exact" })
+            .gte("time", start)
+            .lte("time", end);
+      
+          if (error) {
+            console.error("Supabase 錯誤:", error);
+            return;
+          }
+      
+          console.log("本月筆數 =", count);
+          this.countThisMonth = count; // ⬅️ 儲存筆數
+          console.log("start:", start, "end:", end)
         }
+        
+        
+        
+        
+        
+        
         /*
         async updateRow(id) {
 

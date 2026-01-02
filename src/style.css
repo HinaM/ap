@@ -239,6 +239,11 @@ html,body{
     outline: none !important;
     border-color: #f460a6 !important; /* 你可以換顏色，或直接拿掉 */
 }
+.coun{
+    color: var(--colorpink);
+    font-weight: 700;
+    font-size: larger;
+}
 /*
 .dec{
     width: 30px;
