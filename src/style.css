@@ -259,14 +259,20 @@ html,body{
 .nav-pills .nav-item{
     background-color: #f3f3f3 !important;
     color: #9e5ce0 !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .nav-pills .nav-item:hover, .nav-pills .nav-item:focus{
     color: #9e5ce0 !important;
     border-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .nav-pills .nav-item .nav-link{
     color: #9e5ce0 !important;
     border-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .nav-pills .nav-item .active{
     background-color: #9e5ce0 !important;
