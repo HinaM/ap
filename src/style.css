@@ -257,7 +257,7 @@ html,body{
     font-size: larger;
 }
 .nav-pills .nav-item{
-    background-color: #fff !important;
+    background-color: #f3f3f3 !important;
     color: #9e5ce0 !important;
 }
 .nav-pills .nav-item:hover, .nav-pills .nav-item:focus{
