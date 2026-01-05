@@ -41,6 +41,7 @@ new Vue({
         upload_place: "",
         upload_description: "",
         monthList: [],
+        monthListaddOn: [],
         month_rec: "",
         uploadedUrl: "",
         pageLoading: true,
@@ -466,6 +467,7 @@ new Vue({
         },
         generateMonths() {
           const result = []
+          const result2 = []
     
         
           const now = new Date()
@@ -487,7 +489,9 @@ new Vue({
     
           while (y < currentYear || (y === currentYear && m <= currentMonth)) {
             const formatted = `${y}-${String(m).padStart(2, "0")}`
+            const formatted2 = `${y}/${String(m)}`
             result.push(formatted)
+            result2.push(formatted2)
     
             // 加一個月
             m++
@@ -498,6 +502,8 @@ new Vue({
           }
     
           this.monthList = result
+          this.monthListaddOn = result2.reverse()
+
         },
         async fetchByMonth() {
           if (!this.month_rec) return

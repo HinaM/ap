@@ -31,15 +31,41 @@
         </div>
       </nav>
 
+
+
       
+<!--
+      <div class="my-5" v-for="i in monthListaddOn" :key="i">
+        <h5>{{ i }}</h5>
+
+        <div class="row mx-1">
+          <div
+            class="col-4 p-1"
+            v-for="file in allph"
+            :key="file.id"
+            v-if="file.addedOn?.startsWith(i)"
+          >
+            <img
+              :src="file.url"
+              class="w-100 square"
+              :data-bs-target="'#ml' + i"
+              data-bs-toggle="modal"
+            >
+            {{i}}
+          </div>
+        </div>
+      </div>
+    -->
+
+
       <div class="row my-5 mx-1">
         <div class="col-4 p-1" v-for="(file,i) in allph" >
           <img :src="file.url" alt="" class="w-100 square" :data-bs-target="'#ml' + i" data-bs-toggle="modal">
-          
+          <p class="m-0 p-0">{{file.addedOn}}</p>
         </div>
         
       </div>
-      
+
 
       <div class="rec_insert text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fa-solid fa-plus"></i>
@@ -79,8 +105,6 @@
         </div>
       </div>
     </div>
-
-    
 
 
     <div v-for="(file,i) in allph" class="modal fade" :id="'ml' + i" tabindex="-1">
