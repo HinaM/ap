@@ -26,6 +26,7 @@ new Vue({
         level: 5,
         call: "傳奇甜點百匯",
         record: [],
+        recordIndex: [],
         collection: [],
         catalog: "第一彈",
         catalist: [],
@@ -116,6 +117,28 @@ new Vue({
           }
         
           this.record = data || []
+       
+
+
+          
+        
+        } catch (err) {
+          console.error('Supabase select failed:', err)
+        }
+        try {
+        
+          const { data, error } = await supabaseClient
+            .from('apr_rec')
+            .select('*')
+            .order('time', { ascending: false })
+            .order('id', { ascending: false })
+        
+          if (error) {
+            console.error(error)
+            return
+          }
+        
+          this.recordIndex = data || []
        
 
 

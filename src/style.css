@@ -37,7 +37,7 @@ html,body{
 .all {
     width: 100%;
     min-height: 100vh;
-    background: #efe1e8;
+    background: #f3f3f3;
     /*
     background: linear-gradient(to right top,
   #ff9bb5, 
@@ -255,6 +255,24 @@ html,body{
     color: var(--colorpink);
     font-weight: 700;
     font-size: larger;
+}
+.nav-pills .nav-item{
+    background-color: #fff !important;
+    color: #9e5ce0 !important;
+}
+.nav-pills .nav-item:hover, .nav-pills .nav-item:focus{
+    color: #9e5ce0 !important;
+}
+.nav-pills .nav-item .nav-link{
+    color: #9e5ce0 !important;
+}
+.nav-pills .nav-item .active{
+    background-color: transparent !important;
+    color: #9e5ce0 !important;
+    border-bottom: solid 2px #9e5ce0 !important;
+}
+.nav-pills .nav-item .nav-link.active{
+    border-radius: 0;
 }
 /*
 .dec{
