@@ -164,7 +164,7 @@
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
               <div class="row my-2 mx-1 mb-5">
-                <div class="col-4 p-1" v-for="(file,i) in allph9" >
+                <div class="col-6 p-1" v-for="(file,i) in allph9.slice(0,4)" >
                   <img :src="file.url" alt="" class="w-100 square" :data-bs-target="'#ml' + i" data-bs-toggle="modal">
                 </div>  
               </div>
