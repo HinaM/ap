@@ -741,6 +741,8 @@ new Vue({
         },
       
         async getCountThisMonth() {
+
+          
           const { start, end } = this.getMonthRange();
       
           const { data, count, error } = await supabaseClient
@@ -757,6 +759,19 @@ new Vue({
           console.log("本月筆數 =", count);
           this.countThisMonth = count; // ⬅️ 儲存筆數
           console.log("start:", start, "end:", end)
+          /*
+          const { data, error } = await supabaseClient
+            .from('apr_rec')
+            .select('play');
+        
+          if (error) {
+            console.error(error);
+            return;
+          }
+        
+          const total = data.reduce((sum, row) => sum + (row.play || 0), 0);
+          this.countThisMonth = total;
+*/
         }
         
         

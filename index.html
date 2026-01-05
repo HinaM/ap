@@ -81,6 +81,8 @@
               </div>
               
             </div>
+
+            
 <!--
             <div class="d-flex align-items-center justify-content-center my-3">
               <div class="container-fluid">
@@ -108,7 +110,7 @@
         
         
       </div>
-
+<!--
       <div class="container-fluid profile my-5">
         <div class="row d-flex align-items-center justify-content-center">
           <div class="col-10 bg-white p-2 profiles">
@@ -146,6 +148,32 @@
           </div>
         </div>
       </div>
+    -->
+
+
+      <div class="row p-0 m-0 d-flex align-items-center justify-content-center">
+        <div class="col-11">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item w-50 d-flex align-items-center justify-content-center" role="presentation">
+              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+            </li>
+            <li class="nav-item w-50 d-flex align-items-center justify-content-center" role="presentation">
+              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+              <div class="row my-2 mx-1 mb-5">
+                <div class="col-4 p-1" v-for="(file,i) in allph9" >
+                  <img :src="file.url" alt="" class="w-100 square" :data-bs-target="'#ml' + i" data-bs-toggle="modal">
+                </div>  
+              </div>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">...</div>
+          </div>
+        </div>
+      </div>
+      
   
   
       <nav class="navbar sticky-bottom "  style="background-color: #f460a6;">
@@ -162,6 +190,8 @@
       </nav>
 
     </div>
+
+    
 
 
     <div class="modal fade" id="myqrcode" tabindex="-1">
