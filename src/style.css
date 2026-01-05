@@ -262,17 +262,22 @@ html,body{
 }
 .nav-pills .nav-item:hover, .nav-pills .nav-item:focus{
     color: #9e5ce0 !important;
+    border-radius: 0;
 }
 .nav-pills .nav-item .nav-link{
     color: #9e5ce0 !important;
+    border-radius: 0;
 }
 .nav-pills .nav-item .active{
-    background-color: transparent !important;
-    color: #9e5ce0 !important;
+    background-color: #9e5ce0 !important;
+    color: #fff !important;
     border-bottom: solid 2px #9e5ce0 !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .nav-pills .nav-item .nav-link.active{
-    border-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 /*
 .dec{
