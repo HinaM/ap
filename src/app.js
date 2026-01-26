@@ -462,7 +462,7 @@ new Vue({
 
           const play = Number(this.upload_play);
   
-          if (isNaN(play) || play <= 0 || play > 5) {
+          if (isNaN(play) || play < 0 || play > 5) {
             alert("請輸入正確數量。");
             return;
           }
