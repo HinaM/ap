@@ -33,7 +33,9 @@ new Vue({
         colorMap: {
           "陽葵": "#e44d97",
           "美月": "#40bedf",
-          "櫻":"#e64064"
+          "櫻": "#e64064",
+          "紡": "#fbec49",
+          "珠希": "#4471b7"
         },
         upload_title: "",
         upload_star: null,
