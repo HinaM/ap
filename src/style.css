@@ -200,6 +200,13 @@ html,body{
 .rec_insert:hover{
     background-color: #9e5ce0;
 }
+.tags{
+    display: inline-block;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 .accordion-button {
     background-color: transparent !important;
     box-shadow: none !important;   /* 去掉外框陰影 */

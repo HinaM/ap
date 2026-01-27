@@ -31,7 +31,7 @@
         </div>
       </nav>
 
-      <div class="row p-0 m-0 d-flex align-items-center justify-content-center pt-5 pb-3 mb-5" style="background-color: #dfe6f0; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
+      <div class="row p-0 m-0 d-flex align-items-center justify-content-center pt-5 pb-3 mb-3" style="background-color: #dfe6f0; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
         <div class="col-11 d-flex align-items-center justify-content-center">
           <img :src="profile" alt="" style="border-radius: 100%; width: 40%;">
 
@@ -55,6 +55,13 @@
                 <p class="m-0 p-0">持有卡片</p>
               </div>
           </div>
+        </div>
+      </div>
+
+      <div class="row p-0 m-0 d-flex align-items-center justify-content-center mb-3">
+        <div class="col-11 my-3">
+          <h3 class="m-0 p-0">參加季度</h3>
+          <div class="tags" v-for="i in season"># {{i}}</div>
         </div>
       </div>
 

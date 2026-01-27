@@ -22,7 +22,7 @@ new Vue({
         charaName: 'HINA',
         myqr: '',
         profile: '',
-        season: "甜點季度",
+        season: ["甜點季度"],
         level: 5,
         call: "傳奇甜點百匯",
         record: [],
