@@ -205,7 +205,6 @@ html,body{
     background-color: #fff;
     padding: 5px 10px;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 5px;
 }
 .accordion-button {
     background-color: transparent !important;
