@@ -9,9 +9,9 @@
     font-family: "cwTeXYen", "Montserrat" ,sans-serif;
 }
 :root{
-    --colorpink: #f460a6;
+    --colorpink: #e0b1c1;
     --colorpinker: #da5493;
-    --colorpurple: #ca96ef;
+    --colorpurple: #dfe6f0;
 }
 html,body{
     
@@ -146,6 +146,9 @@ html,body{
     align-items: center; 
     text-decoration: none;
 }
+.tab-pane{
+    background-color: var(--colorpurple) !important;
+}
 .coll_name{
     font-size: 12px;
 }
@@ -264,13 +267,13 @@ html,body{
     border-top-right-radius: 10px;
 }
 .nav-pills .nav-item:hover, .nav-pills .nav-item:focus{
-    color: var(--colorpurple) !important;
+    color: #b28dd5 !important;
     border-radius: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 .nav-pills .nav-item .nav-link{
-    color: var(--colorpurple) !important;
+    color: #b3a9a9 !important;
     border-radius: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -278,7 +281,7 @@ html,body{
 }
 .nav-pills .nav-item .active{
     background-color: var(--colorpurple) !important;
-    color: #fff !important;
+    color: #b28dd5 !important;
     border-bottom: solid 2px var(--colorpurple) !important;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

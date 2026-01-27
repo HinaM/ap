@@ -101,7 +101,7 @@
 
       <div class="row p-0 m-0 d-flex align-items-center justify-content-center">
         <div class="col-11">
-          <ul class="nav nav-pills mb-3 mx-1 px-1" id="pills-tab" role="tablist">
+          <ul class="nav nav-pills" id="pills-tab" role="tablist">
             <li class="nav-item w-50 d-flex align-items-center justify-content-center" role="presentation">
               <button class="nav-link w-100 active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i class="fa-solid fa-camera me-2"></i>最新相簿</button>
             </li>
@@ -109,17 +109,17 @@
               <button class="nav-link w-100" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="fa-solid fa-bars me-2"></i>最近紀錄</button>
             </li>
           </ul>
-          <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-              <div class="row my-2 mx-1 mb-5">
+          <div class="tab-content mb-5" id="pills-tabContent">
+            <div class="tab-pane fade show active p-3" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+              <div class="row px-2">
                 <div class="col-6 p-1" v-for="(file,i) in allph9.slice(0,4)" >
                   <img :src="file.url" alt="" class="w-100 square" :data-bs-target="'#ml' + i" data-bs-toggle="modal">
                 </div>  
               </div>
             </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+            <div class="tab-pane fade p-3" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
 
-              <div class="row my-2 mx-1 mb-5">
+              <div class="row px-2">
                 <div class="card mb-2"  v-for="(i,index) in recordIndex.slice(0, 4)">
                   <div class="card-body">
                     <p class="p-0 m-0">{{ i.title }}</p>
