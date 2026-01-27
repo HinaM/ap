@@ -34,95 +34,80 @@
       
 
       <div class="container-fluid profile my-5">
+
         <div class="row d-flex align-items-center justify-content-center">
-          <div class="col-10 bg-white p-2 profiles">
-            
-            
-
-            <div class="d-flex align-items-center justify-content-center mt-3">
-              <div class="container-fluid">
-                <p class="m-0 color-pink mb-3 text-center tw-7" style="font-size: 4.5vw;"><i class="fa-solid fa-award me-2"></i>收集</p>
-                <div class="row mb-3">
-                  <div class="col-12 p-0 mb-2">
-                  
-                    <select class="form-select" aria-label="Default select example" v-model="catalog">
-                        
-                        <option :value="i" v-for="i in catalist">{{i}}</option>
-                        
-                        
-                      </select>
-                  </div>
-                  <div class="col-12 p-0 rank_title py-2 my-2"><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star"></i></div>
-                  <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 4">
-                    <img :src="file.url" alt="" class="w-100">
-                    <div class="my-1">
-                      <div class="d-flex align-items-center justify-content-center">
-                        <p class="m-0 p-0 px-1 coll_name text-white" style="display: inline-block; border-radius: 5px; font-weight: bold;" :style=" {backgroundColor: colorMap[file.charactor]} ">{{file.charactor}}</p>
-                      </div>
-                      <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
-                      <div class="counter">
-                        <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
-                        <p class="m-0 p-0">{{file.num}}</p>
-                       
-                        <button class="btn bgc-pink text-white" @click="minus(file.id, file.num)"><i class="fa-solid fa-minus"></i></button>
-                      </div>
-                      
-                    </div>
-                  </div>
-
-
-                  <div class="col-12 p-0 rank_title py-2 my-2"><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star"></i></div>
-                  <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 3">
-                    <img :src="file.url" alt="" class="w-100">
-                    <div class="my-1">
-                      <div class="d-flex align-items-center justify-content-center">
-                        <p class="m-0 p-0 px-1 coll_name text-white" style="display: inline-block; border-radius: 5px; font-weight: bold;" :style=" {backgroundColor: colorMap[file.charactor]} ">{{file.charactor}}</p>
-                      </div>
-                      <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
-                      <div class="counter">
-                        <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
-                        <p class="m-0 p-0">{{file.num}}</p>
-                       
-                        <button class="btn bgc-pink text-white" @click="minus(file.id, file.num)"><i class="fa-solid fa-minus"></i></button>
-                      </div>
-                      
-                    </div>
-                  </div>
-
-                  <div class="col-12 p-0 rank_title py-2 my-2"></i><i class="fa-solid fa-star me-2"></i><i class="fa-solid fa-star"></i></div>
-                  <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 2">
-                    <img :src="file.url" alt="" class="w-100">
-                    <div class="my-1">
-                      <div class="d-flex align-items-center justify-content-center">
-                        <p class="m-0 p-0 px-1 coll_name text-white" style="display: inline-block; border-radius: 5px; font-weight: bold;" :style=" {backgroundColor: colorMap[file.charactor]} ">{{file.charactor}}</p>
-                      </div>
-                      <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
-                      <div class="counter">
-                        <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
-                        <p class="m-0 p-0">{{file.num}}</p>
-                       
-                        <button class="btn bgc-pink text-white" @click="minus(file.id, file.num)"><i class="fa-solid fa-minus"></i></button>
-                      </div>
-                      
-                    </div>
-                  </div>
-                  
-                </div>
-
-                
-
-              </div>
-
-              
-            </div>
-            
-
-          
-
-
-            
+          <div class="col-11 p-0 mb-2">
+            <select class="form-select" aria-label="Default select example" v-model="catalog">
+              <option :value="i" v-for="i in catalist">{{i}}</option>
+             </select>
           </div>
+
+          <div class="col-11 p-0 rank_title py-2 my-2"><i class="fa-solid fa-star me-2" v-for="i in 4"></i></div>
+          <div class="row col-11 d-flex align-items-center justify-content-cente">
+
+            <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 4">
+                    <img :src="file.url" alt="" class="w-100">
+                    <div class="my-1">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <p class="m-0 p-0 px-1 coll_name text-white" style="display: inline-block; border-radius: 5px; font-weight: bold;" :style=" {backgroundColor: colorMap[file.charactor]} ">{{file.charactor}}</p>
+                      </div>
+                      <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
+                      <div class="counter">
+                        <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
+                        <p class="m-0 p-0">{{file.num}}</p>
+                       
+                        <button class="btn bgc-pink text-white" @click="minus(file.id, file.num)"><i class="fa-solid fa-minus"></i></button>
+                      </div>
+                      
+                    </div>
+                  </div>
+          </div>
+
+          <div class="col-11 p-0 rank_title py-2 my-2"><i class="fa-solid fa-star me-2" v-for="i in 3"></i></div>
+          <div class="row col-11 d-flex align-items-center justify-content-cente">
+
+            <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 3">
+                    <img :src="file.url" alt="" class="w-100">
+                    <div class="my-1">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <p class="m-0 p-0 px-1 coll_name text-white" style="display: inline-block; border-radius: 5px; font-weight: bold;" :style=" {backgroundColor: colorMap[file.charactor]} ">{{file.charactor}}</p>
+                      </div>
+                      <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
+                      <div class="counter">
+                        <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
+                        <p class="m-0 p-0">{{file.num}}</p>
+                       
+                        <button class="btn bgc-pink text-white" @click="minus(file.id, file.num)"><i class="fa-solid fa-minus"></i></button>
+                      </div>
+                      
+                    </div>
+                  </div>
+          </div>
+
+          <div class="col-11 p-0 rank_title py-2 my-2"><i class="fa-solid fa-star me-2" v-for="i in 2"></i></div>
+          <div class="row col-11 d-flex align-items-center justify-content-cente">
+
+            <div class="col-6 p-1" v-for="(file,i) in collection" v-if="file.catalog === catalog && file.rank == 2">
+                    <img :src="file.url" alt="" class="w-100">
+                    <div class="my-1">
+                      <div class="d-flex align-items-center justify-content-center">
+                        <p class="m-0 p-0 px-1 coll_name text-white" style="display: inline-block; border-radius: 5px; font-weight: bold;" :style=" {backgroundColor: colorMap[file.charactor]} ">{{file.charactor}}</p>
+                      </div>
+                      <p class="m-0 p-0 coll_name text-center">{{file.name}}</p>
+                      <div class="counter">
+                        <button class="btn bgc-pink text-white" @click="plus(file.id, file.num)"><i class="fa-solid fa-plus" ></i></button>
+                        <p class="m-0 p-0">{{file.num}}</p>
+                       
+                        <button class="btn bgc-pink text-white" @click="minus(file.id, file.num)"><i class="fa-solid fa-minus"></i></button>
+                      </div>
+                      
+                    </div>
+                  </div>
+          </div>
+
+                  
         </div>
+        
       </div>
   
   
