@@ -135,12 +135,29 @@
             <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body d-flex align-items-center justify-content-center" style="flex-direction: column;">
-            <img :src="myqr" alt="" class="w-75">
+            <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item" v-for="(file, i) in allqr" :key="i" :class="{ active: i === 0 }">
+                <img :src="file.url" class="d-block h-100 w-75 mx-auto" alt="">
+                {{ file.name }}
+              </div>
+            </div>
+            
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
 
 
             
             
           </div>
+          
         </div>
       </div>
     </div>
