@@ -484,7 +484,7 @@ new Vue({
         },
         async insert(){
 
-          this.loading = true; 
+          
 
           if (
             !this.upload_title.trim() ||
@@ -509,6 +509,8 @@ new Vue({
             alert("請輸入正確數量。");
             return;
           }
+
+          this.loading = true; 
 
           const { data, error } = await supabaseClient
           .from('apr_rec')
