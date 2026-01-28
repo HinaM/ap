@@ -191,7 +191,7 @@ html,body{
     right: 10px;
     width: 60px;
     height: 60px;
-    background-color: #ad65f7;
+    background-color: #9eb4e9;
     border-radius: 100%;
     transition: 0.3s;
     cursor: pointer;
@@ -199,14 +199,14 @@ html,body{
     z-index: 1000;
 }
 .rec_insert_btn{
-    background-color: #ad65f7 !important;
+    background-color: #9eb4e9 !important;
     border-radius: 100%;
     transition: 0.3s;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .rec_insert:hover{
-    background-color: #9e5ce0;
+    background-color: #8faaea;
 }
 .tags{
     display: inline-block;
