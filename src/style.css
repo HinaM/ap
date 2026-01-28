@@ -281,7 +281,7 @@ html,body{
     border-top-right-radius: 10px;
 }
 .nav-pills .nav-item:hover, .nav-pills .nav-item:focus{
-    color: #b28dd5 !important;
+    color: #9eb4e9 !important;
     border-radius: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -295,7 +295,7 @@ html,body{
 }
 .nav-pills .nav-item .active{
     background-color: var(--colorpurple) !important;
-    color: #b28dd5 !important;
+    color: #9eb4e9 !important;
     border-bottom: solid 2px var(--colorpurple) !important;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
