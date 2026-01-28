@@ -73,6 +73,14 @@ html,body{
     overflow: hidden;
     object-fit: cover;
 }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-size: 60%;
+}
 .btn-customer{
     background-color: var(--colorpink) !important;
     transition: 0.5s;
