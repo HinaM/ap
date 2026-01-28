@@ -135,7 +135,7 @@
             <div class="carousel-inner">
               <div class="carousel-item" v-for="(file, i) in allqr" :key="i" :class="{ active: i === 0 }">
                 <img :src="file.url" class="d-block h-100 w-75 mx-auto" alt="">
-                {{ file.name }}
+                <div class="text-center">{{ file.name }}</div>
               </div>
             </div>
             
