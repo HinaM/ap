@@ -23,7 +23,7 @@ new Vue({
         myqr: '',
         allqr: [],
         profile: '',
-        season: ["甜點季度","花朵季度"],
+        season: ["甜點季度","花朵季度","花朵偶像公主大賽"],
         level: 5,
         call: "傳奇花束",
         record: [],
