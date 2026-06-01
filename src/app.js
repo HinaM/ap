@@ -29,14 +29,17 @@ new Vue({
         record: [],
         recordIndex: [],
         collection: [],
-        catalog: "第二彈",
+        catalog: "第四彈",
         catalist: [],
         colorMap: {
           "陽葵": "#e44d97",
           "美月": "#40bedf",
           "櫻": "#e64064",
           "紡": "#fbec49",
-          "珠希": "#4471b7"
+          "珠希": "#4471b7",
+         "千依": "#b4a3cd",
+         "愛里": "#bbe0d0",
+         "琳琳": "#f08430"
         },
         upload_title: "",
         upload_star: null,
